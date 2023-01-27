@@ -11,6 +11,8 @@ group = "com.arexe"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
+extra["cucumber.version"] = "6.11.0"
+
 repositories {
 	mavenCentral()
 }
@@ -28,6 +30,10 @@ dependencies {
 	runtimeOnly("io.micrometer:micrometer-registry-prometheus")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
+	testImplementation("io.cucumber:cucumber-java:${property("cucumber.version")}")
+	testImplementation("io.cucumber:cucumber-junit:${property("cucumber.version")}")
+	testImplementation("io.cucumber:cucumber-spring:${property("cucumber.version")}")
 	testImplementation("io.projectreactor:reactor-test")
 }
 
